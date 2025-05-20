@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react'
 import { TaskLists } from './TaskContext'
+import { RiDeleteBinFill } from "react-icons/ri";
 
-function ShowTodos() {
+function ShowTodos({ onDelete }) {
   const todoList = useContext(TaskLists)
   const [completed, setCompleted] = useState(0)
 
@@ -13,16 +14,25 @@ function ShowTodos() {
       e.target.nextSibling.classList.remove('line-through')
       setCompleted(completed - 1)
     }
-    // console.log(e.target.nextSibling.htmlFor)
+  }
+
+  const handleDelete = (e) => {
+    if (e.currentTarget.id === e.currentTarget.previousSibling.id) {
+      onDelete(todoList.filter((_, idx) => idx !== Number(e.currentTarget.id)))
+      setCompleted(completed - 1)
+    }
   }
 
   return (
     <div className='text-center grid gap-5'>
       <div className='flex flex-col gap-3'>
-        {todoList.map((todo) =>
-          <div key={todo} className='w-full flex gap-3 border px-5 py-3 rounded'>
+        {todoList.map((todo, idx) =>
+          <div key={idx} className='w-full flex gap-3 border px-5 py-3 rounded'>
             <input type="checkbox" name="todo" id={todo} onChange={handleChecked} />
-            <label htmlFor={todo} >{todo}</label>
+            <label id={idx} htmlFor={todo} className='grow text-left'>{todo}</label>
+            <button id={idx} className='hover:cursor-pointer' onClick={handleDelete}>
+              <RiDeleteBinFill className='text-2xl' />
+            </button>
           </div>
         )}
       </div>

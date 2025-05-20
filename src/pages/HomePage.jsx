@@ -17,6 +17,12 @@ function HomePage() {
     reset()
   }
 
+  const handleDelete = (data) =>{
+    setTodo(data)
+    // console.log(data)
+  }
+
+
   let count = todos.length
 
   return (
@@ -38,7 +44,7 @@ function HomePage() {
           </div>
           <div>
             <TaskLists.Provider value={todos}>
-              <ShowTodos />
+              <ShowTodos onDelete={handleDelete} />
             </TaskLists.Provider>
           </div>
         </div>
