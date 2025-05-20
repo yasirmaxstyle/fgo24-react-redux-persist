@@ -1,12 +1,11 @@
-# {project title}
+# APP LIST TODO FEATURING `useContext()` AND `useRef()`
 
-{project description}
-
+This project allows users to add anything in the input some works to-do. The input value will be appended directly in the lists below it. And it comes with checkboxes, which is when clicked the text will be line-crossed. This project mainly use hooks such as `useContext` to make global variable and `useRef` to access element in components.
 
 ## HOW TO RUN THIS PROGRAM
 1. Clone this project
 ```sh
-git clone https://github.com/yasirmaxstyle/fgo24-react-{project-endpoint}
+git clone https://github.com/yasirmaxstyle/fgo24-react-todo
 ```
 2. Install NPM
 ```sh
