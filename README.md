@@ -8,7 +8,7 @@ This project allows users to add anything in the input some works to-do. The inp
 - Checkmark it when done
 - Delete it from list when not needed
 
-
+[Screencast from 2025-05-20 21-56-58.webm](https://github.com/user-attachments/assets/c664fcbb-ab0f-49f9-bc9e-23e5a91542b2)
 
 ## HOW TO RUN THIS PROGRAM
 1. Clone this project
