@@ -32,7 +32,7 @@ function HomePage() {
             <p>You have <span>{count === 0 ? "no" : count}</span> <span>{count === 1 ? "task" : " tasks"}</span> to do</p>
             {todos.length === 0 &&
               <button className="px-3 py-2 bg-black text-white rounded">
-                <label htmlFor="list">Add activity</label>
+                <label htmlFor="list" className="hover:cursor-pointer">Add activity</label>
               </button>
             }
           </div>
