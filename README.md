@@ -2,6 +2,14 @@
 
 This project allows users to add anything in the input some works to-do. The input value will be appended directly in the lists below it. And it comes with checkboxes, which is when clicked the text will be line-crossed. This project mainly use hooks such as `useContext` to make global variable and `useRef` to access element in components.
 
+## Key Features
+
+- Add activities to do
+- Checkmark it when done
+- Delete it from list when not needed
+
+
+
 ## HOW TO RUN THIS PROGRAM
 1. Clone this project
 ```sh
