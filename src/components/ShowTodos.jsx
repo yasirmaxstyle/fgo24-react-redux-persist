@@ -1,29 +1,34 @@
-import { useContext, useRef, useState } from 'react'
+import { useContext, useState } from 'react'
 import { TaskLists } from './TaskContext'
 
 function ShowTodos() {
   const todoList = useContext(TaskLists)
-  const [completed, setCompleted] = useState(false)
-  const todosLabel = useRef()
+  const [completed, setCompleted] = useState(0)
 
   const handleChecked = (e) => {
-    e.target.checked ? todosLabel.current.classList.add('line-through') : todosLabel.current.classList.remove('line-through')
-    setCompleted(!completed)
+    if (e.target.checked && e.target.id === e.target.nextSibling.htmlFor) {
+      e.target.nextSibling.classList.add('line-through')
+      setCompleted(completed + 1)
+    } else {
+      e.target.nextSibling.classList.remove('line-through')
+      setCompleted(completed - 1)
+    }
+    // console.log(e.target.nextSibling.htmlFor)
   }
 
-  let count = todoList.length
   return (
     <div className='text-center grid gap-5'>
-      <div>
-        <p>You have <span>{count === 0 ? "no" : count}</span> <span>{count === 1 ? "task" : " tasks"}</span> to do</p>
-      </div>
-      <div>
-        {todoList.map(todo =>
-          <div key={todo}>
-            <input type="checkbox" name="todo" id="todo" onChange={handleChecked} />
-            <label ref={todosLabel} htmlFor="todo">{todo}</label>
+      <div className='flex flex-col gap-3'>
+        {todoList.map((todo) =>
+          <div key={todo} className='w-full flex gap-3 border px-5 py-3 rounded'>
+            <input type="checkbox" name="todo" id={todo} onChange={handleChecked} />
+            <label htmlFor={todo} >{todo}</label>
           </div>
         )}
+      </div>
+      <div>
+        <p>{completed > 0 && `You have completed ${completed} tasks`}</p>
+        <p>{completed > 0 && completed === todoList.length && `Congratulations, you have done all tasks!!!`}</p>
       </div>
     </div>
   )
