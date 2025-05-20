@@ -17,21 +17,30 @@ function HomePage() {
     reset()
   }
 
+  let count = todos.length
+
   return (
-    <div className="max-w-md mx-auto shadow-md h-[calc(100vh-40px)]">
-      <div className="grid gap-10 px-10 ">
-        <div>
-          {/* <MdAddBox className="text-7xl" /> */}
-        </div>
-        <div className="">
-          <form onSubmit={handleSubmit(addTodo)}>
-            <input {...register('list')} type="text" name="list" id="list" placeholder="Add acctivity" className="w-full border rounded px-5 py-3" />
-          </form>
-        </div>
-        <div>
-          <TaskLists.Provider value={todos}>
-            <ShowTodos />
-          </TaskLists.Provider>
+    <div>
+      <div className="max-w-md mx-auto h-[calc(100vh-40px)]">
+        <div className="grid gap-10 p-10 border rounded-b-xl border-black">
+          <div>
+            <form onSubmit={handleSubmit(addTodo)}>
+              <input {...register('list')} type="text" name="list" id="list" placeholder="Add acctivity" className="w-full border rounded px-5 py-3" />
+            </form>
+          </div>
+          <div className="flex flex-col gap-3 items-center">
+            <p>You have <span>{count === 0 ? "no" : count}</span> <span>{count === 1 ? "task" : " tasks"}</span> to do</p>
+            {todos.length === 0 &&
+              <button className="px-3 py-2 bg-black text-white rounded">
+                <label htmlFor="list">Add activity</label>
+              </button>
+            }
+          </div>
+          <div>
+            <TaskLists.Provider value={todos}>
+              <ShowTodos />
+            </TaskLists.Provider>
+          </div>
         </div>
       </div>
     </div>
