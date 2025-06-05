@@ -1,27 +1,17 @@
-import { MdAddBox } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import ShowTodos from "../components/ShowTodos";
-import { TaskLists } from "../components/TaskContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask } from '../redux/reducers/todos'
 
 function HomePage() {
-  const [todos, setTodo] = useState([])
   const { handleSubmit, register, reset } = useForm()
+  const dispatch = useDispatch()
+  const todos = useSelector(state => state.todos.data)
 
   const addTodo = ({ list }) => {
-    list && setTodo([
-      ...todos,
-      list
-    ])
-    console.log(todos)
+    if (list) dispatch(addTask(list))
     reset()
   }
-
-  const handleDelete = (data) =>{
-    setTodo(data)
-    // console.log(data)
-  }
-
 
   let count = todos.length
 
@@ -31,7 +21,7 @@ function HomePage() {
         <div className="grid gap-10 p-10 border rounded-b-xl border-black">
           <div>
             <form onSubmit={handleSubmit(addTodo)}>
-              <input {...register('list')} type="text" name="list" id="list" placeholder="Add acctivity" className="w-full border rounded px-5 py-3" />
+              <input {...register('list')} type="text" name="list" id="list" placeholder="Add acctivity" className="w-full border rounded px-5 py-3" autoComplete="off" />
             </form>
           </div>
           <div className="flex flex-col gap-3 items-center">
@@ -43,9 +33,7 @@ function HomePage() {
             }
           </div>
           <div>
-            <TaskLists.Provider value={todos}>
-              <ShowTodos onDelete={handleDelete} />
-            </TaskLists.Provider>
+            <ShowTodos />
           </div>
         </div>
       </div>
