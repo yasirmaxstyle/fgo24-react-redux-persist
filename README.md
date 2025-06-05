@@ -11,18 +11,46 @@ This project allows users to add anything in the input some works to-do. The inp
 [Screencast from 2025-05-20 21-56-58.webm](https://github.com/user-attachments/assets/c664fcbb-ab0f-49f9-bc9e-23e5a91542b2)
 
 ## HOW TO RUN THIS PROGRAM
+
+### Using Node JS
+
 1. Clone this project
 ```sh
 git clone https://github.com/yasirmaxstyle/fgo24-react-todo
 ```
-2. Install NPM
+2. Get into the path
+```sh
+cd fgo24-react-todo
+```
+3. Install NPM
 ```sh
 npm install
 ```
-3. Run in dev mode
+4. Run in dev mode
 ```sh
 npm run dev
 ```
+5. Your app will run in http://localhost:5173, since it is built with Vite
+
+### Using Docker
+1. Clone this project
+```sh
+git clone https://github.com/yasirmaxstyle/fgo24-react-todo
+```
+2. Get into the path
+```sh
+cd fgo24-react-todo
+```
+3. Build image
+```bash
+docker build . -t todo:latest
+```
+4. Run image with docker
+```bash
+docker run -p 8080:80 -d todo:latest
+```
+5. Visit your app in http://localhost:8080
+
 ## TECHNOLOGIES
 - [React JS](https://react.dev/)
 - [Vite](https://vite.dev/)
