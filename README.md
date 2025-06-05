@@ -1,6 +1,6 @@
-# APP LIST TODO FEATURING `useContext()` AND `useRef()`
+# APP LIST TODO FEATURING `Redux Toolkit` AND `Redux Persist`
 
-This project allows users to add anything in the input some works to-do. The input value will be appended directly in the lists below it. And it comes with checkboxes, which is when clicked the text will be line-crossed. This project mainly use hooks such as `useContext` to make global variable and `useRef` to access element in components.
+This project allows users to add anything in the input some works to-do. The input value will be appended directly in the lists below it. And it comes with checkboxes, which is when clicked the text will be line-crossed. This project mainly use Redux to make global state storage accross components.
 
 ## Key Features
 
