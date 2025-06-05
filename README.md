@@ -16,11 +16,11 @@ This project allows users to add anything in the input some works to-do. The inp
 
 1. Clone this project
 ```sh
-git clone https://github.com/yasirmaxstyle/fgo24-react-todo
+git clone https://github.com/yasirmaxstyle/fgo24-react-redux-persist
 ```
 2. Get into the path
 ```sh
-cd fgo24-react-todo
+cd fgo24-react-redux-persist
 ```
 3. Install NPM
 ```sh
@@ -35,11 +35,11 @@ npm run dev
 ### Using Docker
 1. Clone this project
 ```sh
-git clone https://github.com/yasirmaxstyle/fgo24-react-todo
+git clone https://github.com/yasirmaxstyle/fgo24-react-redux-persist
 ```
 2. Get into the path
 ```sh
-cd fgo24-react-todo
+cd fgo24-react-redux-persist
 ```
 3. Build image
 ```bash
